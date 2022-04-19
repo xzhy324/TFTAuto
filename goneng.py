@@ -67,7 +67,7 @@ def equip_get_dj_Data(equip, xj1, xj2):
             else:
                 if xj1 in formula and xj2 in formula:
                     return item
-    raise Exception(f"没有找到这个符合的合成装逼 小件1= {xj1} , 小件2= {xj2}")
+    # raise Exception(f"没有找到这个符合的合成装逼 小件1= {xj1} , 小件2= {xj2}")
 
 
 def jobId_get_data(job, job_id):
@@ -93,7 +93,7 @@ def raceId_get_data(race, race_id):
     for item in race:
         if race_id == item['raceId']:
             return item
-    raise Exception(f"没有找到这个id race_id={race_id}")
+    # raise Exception(f"没有找到这个id race_id={race_id}")
 
 
 def jobName_get_data(job, job_name):

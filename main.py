@@ -1127,4 +1127,3 @@ if __name__ == '__main__':
         sys.exit(app.exec_())
     except Exception as err:  # 遇到错误,启动不了,所以直接来论坛留言
         print(err)
-        webbrowser.open("https://www.52pojie.cn/thread-1287172-1-1.html")
