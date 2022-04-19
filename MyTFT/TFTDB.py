@@ -1,13 +1,13 @@
-import updater
+import spider
 import logging
 
 
 class TFTDB:
     def __init__(self):
         logging.info("fetching data from tft api!")
-        self.chessList = updater.getChessList()
-        self.raceList = updater.getRaceList()
-        self.jobList = updater.getJobList()
+        self.chessList = spider.getChessList()
+        self.raceList = spider.getRaceList()
+        self.jobList = spider.getJobList()
         logging.info("data successfully fetched!")
 
     def printTFTDB(self):
@@ -49,10 +49,31 @@ class TFTDB:
                     continue
         return ret
 
+    # 通过种族名字查询种族id
+    def getRaceIdByName(self, race_name: str) -> str:
+        for item in self.raceList:
+            if item["name"] == race_name:
+                return item["raceId"]
+        return ''
+
+    # 通过职业名字查询职业id
+    def getJobIdByName(self, job_name: str) -> str:
+        for item in self.jobList:
+            if item["name"] == job_name:
+                return item["jobId"]
+        return ''
+
+    # 返回纯名字的职业列表
+    def getJobNameList(self) -> [str]:
+        return [item["name"] for item in self.jobList]
+
+    # 返回纯名字的种族列表
+    def getRaceNameList(self) -> [str]:
+        return [item["name"] for item in self.raceList]
+
 
 # 仅供调试用
 if __name__ == '__main__':
-
     tftdb = TFTDB()
     tftdb.printTFTDB()
     result = tftdb.searchTFTDB(raceIds="9", jobIds="7", name="赛娜")

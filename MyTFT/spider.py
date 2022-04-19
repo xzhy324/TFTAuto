@@ -16,7 +16,7 @@ def getChessList() -> [dict]:
     rawData = __myRequestGet("https://game.gtimg.cn/images/lol/act/img/tft/js/chess.js")
     ret = []
     for data in rawData:
-        dic = dict.fromkeys(("title", "displayName", "price", "job", "race"))
+        dic = dict.fromkeys(("title", "displayName", "price", "jobIds", "raceIds"))
         dic["title"] = data["title"]
         dic["displayName"] = data["displayName"]
         dic["price"] = int(data["price"])
