@@ -1,7 +1,7 @@
 import logging
 
 logLevel = logging.INFO  # 控制日志的输出等级，可选项[DEBUG,INFO,WARNING,ERROR]
-myBuild = ['布兰德','泰隆','蕾欧娜','德莱文','辛德拉','泽丽','卡萨丁','斯维因']
+myBuild = ['布兰德','泰隆','蕾欧娜','德莱文','辛德拉','泽丽','卡萨丁','斯维因','波比','卡蜜尔']
 
 
 def settings_init():
