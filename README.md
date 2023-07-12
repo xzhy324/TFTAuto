@@ -2,6 +2,11 @@
 
 https://lol.qq.com/tft/js/api.js
 
+# Prerequisite
+1. python 3.6+
+2. PyQt5
+3. requests
+
 # 需求分析
 ## 阶段1. 制作一个能够筛选英雄的GUI界面
 1. 完成英雄列表及基本信息的拉取
