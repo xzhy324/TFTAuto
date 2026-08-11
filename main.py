@@ -76,8 +76,11 @@ class FormHero(QDialog):
             self.ui.hbox_race.addWidget(rb_race)
 
         # -----------------按称号或名字搜索
-        led_keyword = QLineEdit()
-        self.ui.hbox_price.addWidget(led_keyword)
+        # Keep the input as an instance attribute so the search callback can
+        # read the keyword.  The callback's sender is the button, not this
+        # line edit.
+        self.led_keyword = QLineEdit()
+        self.ui.hbox_price.addWidget(self.led_keyword)
         pb_search = QPushButton('搜索')
         pb_search.pressed.connect(lambda: self.pb_click())
         self.ui.hbox_price.addWidget(pb_search)
@@ -116,8 +119,11 @@ class FormHero(QDialog):
     # 搜索按钮按下的槽函数
     @QtCore.pyqtSlot()
     def pb_click(self) -> None:
-        self.filter["name"] = self.sender().text()
-        result = tftdb.searchTFTDB(name=self.filter["name"])
+        self.filter["name"] = self.led_keyword.text().strip()
+        result = tftdb.searchTFTDB(name=self.filter["name"],
+                                   raceIds=self.filter["raceIds"],
+                                   jobIds=self.filter["jobIds"],
+                                   price=self.filter["price"])
         logging.info(result)
 
 
